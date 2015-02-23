@@ -9,5 +9,5 @@
 
 @interface NSObject (AssociatedDictionary)
 /// A mutable dictionary for arbitrary, ad-hoc properties that are associated with and retained by this object.
-@property (readonly, nonatomic) NSMutableDictionary *properties;
+@property (readonly, nonatomic) NSMutableDictionary *extraProperties;
 @end

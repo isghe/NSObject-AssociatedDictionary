@@ -9,17 +9,17 @@
 #import <objc/runtime.h>
 
 @implementation NSObject (AssociatedDictionary)
-@dynamic properties;
+@dynamic extraProperties;
 
 static const void *kAssociatedDictionaryKey = &kAssociatedDictionaryKey;
 
-- (NSMutableDictionary *)properties
+- (NSMutableDictionary *)extraProperties
 {
-    NSMutableDictionary *properties = objc_getAssociatedObject(self, kAssociatedDictionaryKey);
-    if (!properties) {
-        properties = [NSMutableDictionary dictionaryWithCapacity:4];
-        objc_setAssociatedObject(self, kAssociatedDictionaryKey, properties, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    NSMutableDictionary *extraProperties = objc_getAssociatedObject(self, kAssociatedDictionaryKey);
+    if (!extraProperties) {
+        extraProperties = [NSMutableDictionary dictionaryWithCapacity:4];
+        objc_setAssociatedObject(self, kAssociatedDictionaryKey, extraProperties, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
-    return properties;
+    return extraProperties;
 }
 @end
